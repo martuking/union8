@@ -23,10 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
+
+app.use('/api', api);
+
 app.use('/', function(res){
   res.render('index');
 });
-app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
