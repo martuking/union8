@@ -24605,12 +24605,12 @@ var App = function (_Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'App' },
+        _reactRouterDom.BrowserRouter,
+        null,
         _react2.default.createElement(
           _reactRouterDom.Switch,
           null,
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Home2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: '/personas', component: _Personas2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: '/gruas', component: _Gruas2.default })
         )
