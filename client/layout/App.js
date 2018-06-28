@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Grua from '../views/Gruas';
-import Persona from '../views/Personas';
-import Home from '../views/Home';
+import axios from 'axios';
+import Input from '../components/Input';
 class App extends Component {
-  
+  constructor(props){
+    super(props);
+    this.state = {
+      campos: []
+    };
+  }
+
+  componentDidMount(){
+    axios.get('/api/test')
+    .then( res => {
+      this.setState({
+        campos: res.data
+      })
+    })
+    .catch(console.error);
+  }
+
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/personas" component={Persona} />
-          <Route path="/gruas" component={Grua} />
-        </Switch>
-      </BrowserRouter>
+      <div className="App">
+        <div>
+          {this.state.campos.map((campo) =>
+            <Input campoModelo={campo} key={campo.toString()} />
+          )}
+        </div>
+      </div>
         );
       }
     }

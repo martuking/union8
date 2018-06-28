@@ -19,6 +19,11 @@ var ordenCompraController = require('../controllers/ordenCompraController');
 var oficinaController = require('../controllers/oficinaController');
 var personaForaneaController = require('../controllers/personaForaneaController');
 
+router.get('/test', function(req,res){
+    var prueba = ["marca", "modelo", "numeroSerie"];
+    res.send(prueba);
+});
+
 //rutas para personas foraneas
 router.get('/personaForaneas', personaForaneaController.personaForaneaList);
 router.get('/personaForaneas/new', personaForaneaController.personaForaneaNew);

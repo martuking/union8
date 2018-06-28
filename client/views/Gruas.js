@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import GruaForm from '../components/GruasFrom';
 class Grua extends Component {
 
   render() {
     return (
-        <h1>grua</h1>
+        <GruaForm />
     );
       }
     }

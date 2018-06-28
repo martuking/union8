@@ -8,7 +8,7 @@ exports.gruaList = function(req, res) {
     })
 };
 
-exports.gruaShow = function(req, res) {
+exports.gruaShow = function(req, res, next) {
     Grua.findById(req.params.id)
     .populate('grua')
     .exec(function(err, gruaBuscada) {
@@ -93,3 +93,4 @@ exports.gruaUpdate = function(req, res) {
         res.send(lagrua);
     });
 };
+
