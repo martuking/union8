@@ -6,7 +6,7 @@ class Input extends Component {
     }
     render(){
         return(
-            <div className="form-group" className="text-center">
+            <div className="form-group">
                 <label for={this.props.campoModelo}>{this.props.campoModelo}</label>
                 <input type={this.props.campoModelo} className="form-control" id={this.props.campoModelo} placeholder={this.props.campoModelo}/>
             </div>

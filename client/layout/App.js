@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Input from '../components/Input';
+//import Input from '../components/Input';
+import BarraHome from '../components/BarraHome';
+import TablaHover from '../components/TablaHover';
+
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      campos: []
+      personas: [],
+      encabezados: []
     };
   }
-
   componentDidMount(){
     axios.get('/api/test')
     .then( res => {
       this.setState({
-        campos: res.data
+        encabezados: res.data
+      })
+    })
+    .catch(console.error);
+    axios.get('/api/personas')
+    .then( res => {
+      this.setState({
+        personas: res.data
       })
     })
     .catch(console.error);
@@ -22,14 +32,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          {this.state.campos.map((campo) =>
-            <Input campoModelo={campo} key={campo.toString()} />
-          )}
-        </div>
+        <BarraHome />
+        <TablaHover encabezados={this.state.encabezados}/>
       </div>
         );
       }
     }
     
     export default App;
+
+    
+    /*{this.state.campos.map((campo) =>
+      <Input campoModelo={campo} key={campo.toString()} />
+    )}*/

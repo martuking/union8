@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 
 class SubmitButton extends Component {
     constructor(props){
-        super(prosp);
-        this.state = {
-            campos=[]
-        }
+        super(props);
     }
     render(){
         return(
