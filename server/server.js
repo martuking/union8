@@ -15,23 +15,24 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console,'MongoDB connection error'));
 
 // view engine setup
-app.set('views', path.join(__dirname, '/..client'));
+app.set('views', path.join(__dirname, '../static'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../static')));
 
 app.use('/api', api);
 
-app.use('/', function(res){
+app.use('^', function(req, res, next){
   res.render('index');
 });
 
-// catch 404 and forward to error handler
+/*// catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log('1')
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -39,6 +40,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  console.log('2')
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -47,5 +49,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   //res.send('error', err.status);
 });
+*/
 
 module.exports = app;
