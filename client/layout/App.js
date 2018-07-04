@@ -1,48 +1,24 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-//import Input from '../components/Input';
+import { Route, Switch } from 'react-router-dom';
+
 import BarraHome from '../components/BarraHome';
-import TablaHover from '../components/TablaHover';
+import Grua from '../views/Gruas';
+import Persona from '../views/Personas';
+import Home from '../views/Home';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      personas: [],
-      encabezados: []
-    };
-  }
-  componentDidMount(){
-    axios.get('/api/test')
-    .then( res => {
-      this.setState({
-        encabezados: res.data
-      })
-    })
-    .catch(console.error);
-    axios.get('/api/personas')
-    .then( res => {
-      this.setState({
-        personas: res.data
-      })
-    })
-    .catch(console.error);
-  }
-
   render() {
-    debugger
     return (
-      <div className="App">
+      <div>
         <BarraHome />
-        <TablaHover encabezados={this.state.encabezados} personas={this.state.personas}/>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/personas" component={Persona} />
+          <Route path="/gruas" component={Grua} />
+        </Switch>
       </div>
-        );
-      }
-    }
-    
-    export default App;
+    );
+  }
+}
 
-    
-    /*{this.state.campos.map((campo) =>
-      <Input campoModelo={campo} key={campo.toString()} />
-    )}*/
+export default App;
