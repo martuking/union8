@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <BarraHome />
-        <TablaHover encabezados={this.state.encabezados}/>
+        <TablaHover encabezados={this.state.encabezados} personas={this.state.personas}/>
       </div>
         );
       }

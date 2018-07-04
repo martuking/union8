@@ -21122,7 +21122,7 @@ var App = function (_Component) {
         'div',
         { className: 'App' },
         _react2.default.createElement(_BarraHome2.default, null),
-        _react2.default.createElement(_TablaHover2.default, { encabezados: this.state.encabezados })
+        _react2.default.createElement(_TablaHover2.default, { encabezados: this.state.encabezados, personas: this.state.personas })
       );
     }
   }]);
@@ -22232,7 +22232,8 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TablaHover = function TablaHover(_ref) {
-    var encabezados = _ref.encabezados;
+    var encabezados = _ref.encabezados,
+        personas = _ref.personas;
     return _react2.default.createElement(
         "table",
         { className: "table table-hover" },
@@ -22254,73 +22255,132 @@ var TablaHover = function TablaHover(_ref) {
         _react2.default.createElement(
             "tbody",
             null,
-            _react2.default.createElement(
-                "tr",
-                null,
-                _react2.default.createElement(
-                    "th",
-                    { scope: "row" },
-                    "1"
-                ),
-                _react2.default.createElement(
-                    "td",
+            personas.map(function (persona) {
+                return _react2.default.createElement(
+                    "tr",
                     null,
-                    "Mark"
-                ),
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    "Otto"
-                ),
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    "@mdo"
-                )
-            ),
-            _react2.default.createElement(
-                "tr",
-                null,
-                _react2.default.createElement(
-                    "th",
-                    { scope: "row" },
-                    "2"
-                ),
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    "Jacob"
-                ),
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    "Thornton"
-                ),
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    "@fat"
-                )
-            ),
-            _react2.default.createElement(
-                "tr",
-                null,
-                _react2.default.createElement(
-                    "th",
-                    { scope: "row" },
-                    "3"
-                ),
-                _react2.default.createElement(
-                    "td",
-                    { colSpan: "2" },
-                    "Larry the Bird"
-                ),
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    "@twitter"
-                )
-            )
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona._id.toString() },
+                        persona._id
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.cod.toString() },
+                        persona.cod
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.apellido1.toString() },
+                        persona.apellido1
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.apellido2.toString() },
+                        persona.apellido2
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.nombre.toString() },
+                        persona.nombre
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.rut.toString() },
+                        persona.rut
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.domicilio.toString() },
+                        persona.domicilio
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.cargo.toString() },
+                        persona.cargo
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.dp.toString() },
+                        persona.dp
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.sexo.toString() },
+                        persona.sexo
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.fechaNacimiento.toString() },
+                        persona.fechaNacimiento
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.fechaIngreso.toString() },
+                        persona.fechaIngreso
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.sueldoBase.toString() },
+                        persona.sueldoBase
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.estadoCivil.toString() },
+                        persona.estadoCivil
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.porcentajeCom.toString() },
+                        persona.porcentajeCom
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.afp.toString() },
+                        persona.afp
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.cargas.toString() },
+                        persona.cargas
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: "inval" },
+                        persona.inval
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.isapre.toString() },
+                        persona.isapre
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.tramo.toString() },
+                        persona.tramo
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: "dosPorciento" },
+                        persona.dosPorciento
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: "gratificacion" },
+                        persona.gratificacion
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: persona.montoPactado.toString() },
+                        persona.montoPactado
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        { key: "porcentajeZona" },
+                        persona.porcentajeZona
+                    )
+                );
+            })
         )
     );
 };

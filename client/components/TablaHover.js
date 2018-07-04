@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TablaHover = ({encabezados}) => (
+const TablaHover = ({encabezados, personas}) => (
     <table className="table table-hover">
         <thead>
             <tr>
@@ -10,23 +10,34 @@ const TablaHover = ({encabezados}) => (
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+                {personas.map((persona) => 
+                    <tr>    
+                        <td key={persona._id.toString()}>{persona._id}</td>
+                        <td key={persona.cod.toString()}>{persona.cod}</td>
+                        <td key={persona.apellido1.toString()}>{persona.apellido1}</td>
+                        <td key={persona.apellido2.toString()}>{persona.apellido2}</td>
+                        <td key={persona.nombre.toString()}>{persona.nombre}</td>
+                        <td key={persona.rut.toString()}>{persona.rut}</td>
+                        <td key={persona.domicilio.toString()}>{persona.domicilio}</td>
+                        <td key={persona.cargo.toString()}>{persona.cargo}</td>
+                        <td key={persona.dp.toString()}>{persona.dp}</td>
+                        <td key={persona.sexo.toString()}>{persona.sexo}</td>
+                        <td key={persona.fechaNacimiento.toString()}>{persona.fechaNacimiento}</td>
+                        <td key={persona.fechaIngreso.toString()}>{persona.fechaIngreso}</td>
+                        <td key={persona.sueldoBase.toString()}>{persona.sueldoBase}</td>
+                        <td key={persona.estadoCivil.toString()}>{persona.estadoCivil}</td>
+                        <td key={persona.porcentajeCom.toString()}>{persona.porcentajeCom}</td>
+                        <td key={persona.afp.toString()}>{persona.afp}</td>
+                        <td key={persona.cargas.toString()}>{persona.cargas}</td>
+                        <td key={"inval"}>{persona.inval}</td>
+                        <td key={persona.isapre.toString()}>{persona.isapre}</td>
+                        <td key={persona.tramo.toString()}>{persona.tramo}</td>
+                        <td key={"dosPorciento"}>{persona.dosPorciento}</td>
+                        <td key={"gratificacion"}>{persona.gratificacion}</td>
+                        <td key={persona.montoPactado.toString()}>{persona.montoPactado}</td>
+                        <td key={"porcentajeZona"}>{persona.porcentajeZona}</td>
+                    </tr>
+                )}
         </tbody>
     </table>
 ); 
