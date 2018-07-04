@@ -15,18 +15,18 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console,'MongoDB connection error'));
 
 // view engine setup
-app.set('views', path.join(__dirname, '/..client'));
+app.set('views', path.join(__dirname, '../static'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../static')));
 
 app.use('/api', api);
 
-app.use('/', function(res){
+app.use('^', function(req, res, next){
   res.render('index');
 });
 
@@ -47,5 +47,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   //res.send('error', err.status);
 });
+
 
 module.exports = app;
