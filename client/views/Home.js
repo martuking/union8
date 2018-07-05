@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import TablaHover from '../components/TablaHover';
+
 
 class Home extends Component {
 	constructor(props) {
@@ -30,7 +30,7 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="App">
-				<TablaHover encabezados={this.state.encabezados} personas={this.state.personas} />
+				
 			</div>
 		);
 	}

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Row from './Row';
 
 const Table = (props) => {
@@ -9,7 +8,7 @@ const Table = (props) => {
     );
   })
   return (
-    <div>
+    <div className="jumbotron">
       <table className="table table-hover table-sm">
         <thead>
           <tr>

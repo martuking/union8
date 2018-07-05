@@ -24,11 +24,11 @@ class BarraHome extends Component {
                 Actividades
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">Montajes</a>
-                <a className="dropdown-item" href="#">Pruebas de Limitadores</a>
-                <a className="dropdown-item" href="#">Reportes</a>
-                <a className="dropdown-item" href="#">Revisiones</a>
-                <a className="dropdown-item" href="#">Reparaciones</a>
+                <Link to={"montajes"} className="nav-link"> Montajes </Link>
+                <Link to={"pruebaLimitadores"} className="nav-link"> Pruebas de Limitadores </Link>
+                <Link to={"reportes"} className="nav-link"> Reportes </Link>
+                <Link to={"revisiones"} className="nav-link"> Revisiones </Link>
+                <Link to={"reparaciones"} className="nav-link"> Reparaciones </Link>
               </div>
             </li>
             <li className="nav-item dropdown">
@@ -36,8 +36,8 @@ class BarraHome extends Component {
                 Taller
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">Adquisiciones</a>
-                <a className="dropdown-item" href="#">Guias de Despacho</a>
+              <Link to={"adquisiciones"} className="nav-link"> Adquisiciones </Link>
+              <Link to={"guiasDespacho"} className="nav-link"> Guias de Despacho </Link>
               </div>
             </li>
             <li className="nav-item dropdown">
@@ -47,9 +47,9 @@ class BarraHome extends Component {
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a className="dropdown-item" href="#">Listado Clientes</a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">Ofertas</a>
-                <a className="dropdown-item" href="#">Contratos</a>
-                <a className="dropdown-item" href="#">Órdenes de Compra</a>
+                <Link to={"ofertas"} className="nav-link"> Ofertas </Link>
+                <Link to={"contratos"} className="nav-link"> Contratos </Link>
+                <Link to={"ordenesCompra"} className="nav-link"> Ordenes de Compra </Link>
               </div>
             </li>
           </ul>

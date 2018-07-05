@@ -3,12 +3,12 @@ import axios from 'axios';
 
 import Table from "../components/Table";
 
-class Grua extends Component {
+class GruaList extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
       loading: true,
-			gruas: [],
+			gruas: []
 		};
 	}
 	componentDidMount() {
@@ -45,14 +45,13 @@ class Grua extends Component {
         g.configuraciones.lastre
       ]);
     });
-    debugger
     return (
-      <div>
-        <h1>Listado de gruas</h1>
+      <div className="container">
+        <h1 className="text-center">Listado de Gruas</h1>
         <Table headers={headers} data={data} />
       </div>
     );
   }
 }
 
-export default Grua;
+export default GruaList;

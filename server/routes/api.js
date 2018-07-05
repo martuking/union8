@@ -19,36 +19,6 @@ var ordenCompraController = require('../controllers/ordenCompraController');
 var oficinaController = require('../controllers/oficinaController');
 var personaForaneaController = require('../controllers/personaForaneaController');
 
-router.get('/test', function(req,res){
-    var prueba = [
-        "Id",
-        "Cod",
-        "Primer Apellido",
-        "Segundo Apellido",
-        "Nombre",
-        "Rut",
-        "Domicilio",
-        "Cargo",
-        "DP",
-        "Sexo",
-        "Fecha de Nacimiento",
-        "Fecha de Ingreso",
-        "Sueldo Base",
-        "Estado Civil",
-        "Porcentaje Complementario",
-        "AFP",
-        "Numero de Cargas",
-        "Invalidez",
-        "Isapre",
-        "Tramo",
-        "Dos Porciento",
-        "Gratifiacion",
-        "Monto Pactado",
-        "Porcentaje Zona"
-    ];
-    res.send(prueba);
-});
-
 //rutas para personas foraneas
 router.get('/personaForaneas', personaForaneaController.personaForaneaList);
 router.get('/personaForaneas/new', personaForaneaController.personaForaneaNew);

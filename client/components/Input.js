@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class Input extends Component {
-    constructor(props){
-        super(props)
-    }
-    render(){
-        return(
-            <div className="form-group">
-                <label for={this.props.campoModelo}>{this.props.campoModelo}</label>
-                <input type={this.props.campoModelo} className="form-control" id={this.props.campoModelo} placeholder={this.props.campoModelo}/>
-            </div>
-        ); 
-    }
+const Input = (props) => {
+    return(
+        <div className="form-group">
+            <label for={props.label}><b>{props.label}</b></label>
+            <input type="text" className="form-control" id={props.label} placeholder={props.label}/>
+        </div>
+    );
 }
 
-export default Input;
+export default Input
