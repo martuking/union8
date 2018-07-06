@@ -4,14 +4,21 @@ class GruaCreate extends Component {
 	constructor(props) {
 			super(props);
 			this.state = {
-				loading: true
+				loading: true,
+				gruaBody:{
+					"marca":marca,
+					"modelo":modelo,
+					"numeroSerie":numeroSerie
+				}
 			};
 		}
+	
 	componentDidMount(){
 		this.setState({
 			loading: false
 		})
 	}
+
 	render() {
 		if (this.state.loading) {
 			return("Cargando...");

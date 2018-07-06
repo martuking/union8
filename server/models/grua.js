@@ -8,10 +8,10 @@ var GruaSchema = new Schema({
     modelo:{ type: String, required: true },
     configuraciones:{
         
-        altura: { type: Number, required: true },
-        pluma: { type: Number, required: true },
-        empotrado: { type: String, required: true },
-        lastre: { type: Number, required: true }
+        altura: { type: Number },
+        pluma: { type: Number },
+        empotrado: { type: String },
+        lastre: { type: Number }
 
     }
 });
