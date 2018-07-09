@@ -4,7 +4,7 @@ import Row from './Row';
 const Table = (props) => {
   let headers = props.headers.map((n, i) => {
     return (
-      <th>{n}</th>
+      <th key={i} >{n}</th>
     );
   })
   return (

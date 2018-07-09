@@ -31,13 +31,13 @@ exports.gruaCreate = function(req, res) {
     var grua = new Grua({
         numeroSerie: req.body.numeroSerie,
         marca: req.body.marca,
-        modelo: req.body.modelo,
+        modelo: req.body.modelo/*,
         configuraciones:{
             altura: req.body.configuraciones.altura,
             pluma: req.body.configuraciones.pluma,
             empotrado: req.body.configuraciones.empotrado,
             lastre: req.body.configuraciones.lastre
-        }
+        }*/
     });
     grua.save(function (err) {
         if (err) { return next(err); }

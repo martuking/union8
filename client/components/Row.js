@@ -6,7 +6,7 @@ const Row = (props) => {
       {
         props.data.map((d, i) => {
           return (
-            <td>{d}</td>
+            <td key={i}>{d}</td>
           );
         })
       }

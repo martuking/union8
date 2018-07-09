@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import Form from '../components/Form';
+import Input from '../components/Input';
+import axios from 'axios';
 class GruaCreate extends Component {
 	constructor(props) {
 			super(props);
 			this.changeMarca = this.changeMarca.bind(this);
+			this.changeModelo = this.changeModelo.bind(this);
+			this.changeNumeroSerie = this.changeNumeroSerie.bind(this);
+			this.onSubmit = this.onSubmit.bind(this);
 			this.state = {
 				loading: true,
 				marca:'',
@@ -36,19 +40,32 @@ class GruaCreate extends Component {
 		})
 	}
 
+	onSubmit(event){
+		let data = {
+			numeroSerie: this.state.numeroSerie,
+			marca: this.state.marca,
+			modelo: this.state.modelo
+		}
+		event.preventDefault();
+		axios.post('/api/gruas/create', data).then(
+			window.location.href = '/gruas'
+		).catch(console.error);
+	}
+
 	render() {
 		if (this.state.loading) {
 			return("Cargando...");
 		}
-		const labels = [
-			"Marca",
-			"Modelo",
-			"N°Serie",
-		];
+		
 		return (
 		<div className="container">
 			<h1 className="text-center">Agregar Nueva Grua</h1>
-			<Form data={labels} dfg={this.changeMarca} />
+				<form className="jumbotron" onSubmit={this.onSubmit}>
+					<Input label={"Marca"} abc={this.changeMarca}/>
+					<Input label={"Modelo"} abc={this.changeModelo}/>
+					<Input label={"N°Serie"} abc={this.changeNumeroSerie}/>
+					<button className="btn btn-primary" type="submit">Submit</button>
+				</form>
 		</div>
 		);
 	}
