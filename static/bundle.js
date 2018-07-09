@@ -26773,13 +26773,12 @@ var GruaCreate = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (GruaCreate.__proto__ || Object.getPrototypeOf(GruaCreate)).call(this, props));
 
+		_this.changeMarca = _this.changeMarca.bind(_this);
 		_this.state = {
 			loading: true,
-			gruaBody: {
-				"marca": marca,
-				"modelo": modelo,
-				"numeroSerie": numeroSerie
-			}
+			marca: '',
+			modelo: '',
+			numeroSerie: ''
 		};
 		return _this;
 	}
@@ -26789,6 +26788,27 @@ var GruaCreate = function (_Component) {
 		value: function componentDidMount() {
 			this.setState({
 				loading: false
+			});
+		}
+	}, {
+		key: 'changeMarca',
+		value: function changeMarca(event) {
+			this.setState({
+				marca: event.target.value
+			});
+		}
+	}, {
+		key: 'changeModelo',
+		value: function changeModelo(event) {
+			this.setState({
+				modelo: event.target.value
+			});
+		}
+	}, {
+		key: 'changeNumeroSerie',
+		value: function changeNumeroSerie(event) {
+			this.setState({
+				numeroSerie: event.target.value
 			});
 		}
 	}, {
@@ -26806,7 +26826,7 @@ var GruaCreate = function (_Component) {
 					{ className: 'text-center' },
 					'Agregar Nueva Grua'
 				),
-				_react2.default.createElement(_Form2.default, { data: labels })
+				_react2.default.createElement(_Form2.default, { data: labels, dfg: this.changeMarca })
 			);
 		}
 	}]);
@@ -26827,6 +26847,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -26837,24 +26859,55 @@ var _Input2 = _interopRequireDefault(_Input);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Form = function Form(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: 'jumbotron' },
-    _react2.default.createElement(
-      'form',
-      null,
-      props.data.map(function (d, i) {
-        return _react2.default.createElement(_Input2.default, { label: d, key: i });
-      }),
-      _react2.default.createElement(
-        'button',
-        { className: 'btn btn-primary', type: 'submit' },
-        'Submit'
-      )
-    )
-  );
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Form = function (_Component) {
+  _inherits(Form, _Component);
+
+  function Form(props) {
+    _classCallCheck(this, Form);
+
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+    _this.sendToView = _this.sendToView.bind(_this);
+    return _this;
+  }
+
+  _createClass(Form, [{
+    key: 'sendToView',
+    value: function sendToView() {
+      console.log('form');
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'jumbotron' },
+        _react2.default.createElement(
+          'form',
+          null,
+          this.props.data.map(function (d, i) {
+            return _react2.default.createElement(_Input2.default, { label: d, key: i, abc: _this2.props.dfg });
+          }),
+          _react2.default.createElement(
+            'button',
+            { className: 'btn btn-primary', type: 'submit' },
+            'Submit'
+          )
+        )
+      );
+    }
+  }]);
+
+  return Form;
+}(_react.Component);
 
 exports.default = Form;
 
@@ -26866,31 +26919,68 @@ exports.default = Form;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
-var React = _interopRequireWildcard(_react);
+var _react2 = _interopRequireDefault(_react);
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Input = function Input(props) {
-    return React.createElement(
-        "div",
-        { className: "form-group" },
-        React.createElement(
-            "label",
-            { "for": props.label },
-            React.createElement(
-                "b",
-                null,
-                props.label
-            )
-        ),
-        React.createElement("input", { type: "text", className: "form-control", id: props.label, placeholder: props.label })
-    );
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Input = function (_Component) {
+	_inherits(Input, _Component);
+
+	function Input(props) {
+		_classCallCheck(this, Input);
+
+		var _this = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
+
+		_this.sendToForm = _this.sendToForm.bind(_this);
+		return _this;
+	}
+
+	_createClass(Input, [{
+		key: 'sendToForm',
+		value: function sendToForm() {
+			console.log('input');
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'form-group' },
+				_react2.default.createElement(
+					'label',
+					null,
+					_react2.default.createElement(
+						'b',
+						null,
+						this.props.label
+					)
+				),
+				_react2.default.createElement('input', {
+					type: 'text',
+					className: 'form-control',
+					id: this.props.label,
+					placeholder: this.props.label,
+					onChange: this.props.abc
+				})
+			);
+		}
+	}]);
+
+	return Input;
+}(_react.Component);
 
 exports.default = Input;
 
