@@ -11,7 +11,7 @@ class CheckBox extends Component {
 					type="checkbox" 
 					className="form-check-input" 
 					id={this.props.label}
-					checked={this.props.data}
+					onChange={this.props.data}
 				/>
 				<label className="form-check-label" >{this.props.label}</label>				
 			</div>
