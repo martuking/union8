@@ -1,23 +1,23 @@
-import  React,{ Component } from 'react';
+import React, { Component } from 'react';
 
 class Input extends Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 	}
-	render(){
+	render() {
 		return (
 			<div className="form-group">
 				<label><b>{this.props.label}</b></label>
-				<input 
-					type="text" 
-					className="form-control" 
-					id={this.props.label} 
-					placeholder={this.props.label} 
-					onChange={this.props.abc}
+				<input
+					type={this.props.type}
+					className="form-control"
+					id={this.props.label}
+					placeholder={this.props.label}
+					onChange={this.props.data}
 				/>
 			</div>
 		);
 	}
 }
-	
+
 export default Input

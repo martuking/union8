@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import HomeBar from '../components/HomeBar';
 import GruaList from '../views/GruaList';
-import Persona from '../views/Personas';
-import Home from '../views/Home';
 import GruaCreate from '../views/GruaCreate';
+import PersonaList from '../views/PersonaList';
+import PersonaCreate from '../views/PersonaCreate';
 
 class App extends Component {
   render() {
@@ -13,8 +12,9 @@ class App extends Component {
       <div>
         <HomeBar />
         <Switch >
-          <Route exact path="/" component={Home} />
-          <Route path="/personas" component={Persona} />
+          <Route exact path="/" component={GruaList} />
+          <Route path="/personas" component={PersonaList} />
+          <Route path="/personasCreate" component={PersonaCreate} />
           <Route path="/gruas" component={GruaList} />
           <Route path="/gruasCreate" component={GruaCreate} />
         </Switch>

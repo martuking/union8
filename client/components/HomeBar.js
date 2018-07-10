@@ -13,11 +13,23 @@ class BarraHome extends Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={"gruas"} className="nav-link"> Gruas </Link>
+          <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Gruas
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link to={"gruas"} className="nav-link"> Listado de gruas </Link>
+                <Link to={"gruasCreate"} className="nav-link"> Nueva grua </Link>
+              </div>
             </li>
-            <li className="nav-item">
-              <Link to={"personas"} className="nav-link"> Personal </Link>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Personal
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link to={"personas"} className="nav-link"> Listado de personal </Link>
+                <Link to={"personasCreate"} className="nav-link"> Nueva persona </Link>
+              </div>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

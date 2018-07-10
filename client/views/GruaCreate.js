@@ -59,11 +59,11 @@ class GruaCreate extends Component {
 		
 		return (
 		<div className="container">
-			<h1 className="text-center">Agregar Nueva Grua</h1>
+			<h1 className="text-center">Agregar nueva grua</h1>
 				<form className="jumbotron" onSubmit={this.onSubmit}>
-					<Input label={"Marca"} abc={this.changeMarca}/>
-					<Input label={"Modelo"} abc={this.changeModelo}/>
-					<Input label={"N°Serie"} abc={this.changeNumeroSerie}/>
+					<Input label={"Marca"} data={this.changeMarca}/>
+					<Input label={"Modelo"} data={this.changeModelo}/>
+					<Input label={"N°Serie"} data={this.changeNumeroSerie}/>
 					<button className="btn btn-primary" type="submit">Submit</button>
 				</form>
 		</div>
