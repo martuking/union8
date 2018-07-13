@@ -25401,19 +25401,19 @@ var _GruaDetail = __webpack_require__(103);
 
 var _GruaDetail2 = _interopRequireDefault(_GruaDetail);
 
-var _PersonaList = __webpack_require__(105);
+var _PersonaList = __webpack_require__(104);
 
 var _PersonaList2 = _interopRequireDefault(_PersonaList);
 
-var _PersonaCreate = __webpack_require__(106);
+var _PersonaCreate = __webpack_require__(105);
 
 var _PersonaCreate2 = _interopRequireDefault(_PersonaCreate);
 
-var _ClienteList = __webpack_require__(108);
+var _ClienteList = __webpack_require__(107);
 
 var _ClienteList2 = _interopRequireDefault(_ClienteList);
 
-var _ClienteCreate = __webpack_require__(109);
+var _ClienteCreate = __webpack_require__(108);
 
 var _ClienteCreate2 = _interopRequireDefault(_ClienteCreate);
 
@@ -26840,10 +26840,6 @@ var _axios = __webpack_require__(5);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _Output = __webpack_require__(104);
-
-var _Output2 = _interopRequireDefault(_Output);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26885,8 +26881,6 @@ var GruaDetail = function (_Component) {
       if (this.state.loading) {
         return "Cargando...";
       }
-      var headers = ["Marca", "Modelo", "Nº Serie"];
-      var data = [this.state.grua.marca, this.state.grua.modelo, this.state.grua.numeroSerie];
       return _react2.default.createElement(
         'div',
         { className: 'container' },
@@ -26897,10 +26891,39 @@ var GruaDetail = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          null,
-          data.forEach(function (d) {
-            _react2.default.createElement(_Output2.default, { d: d });
-          })
+          { className: 'jumbotron' },
+          _react2.default.createElement(
+            'legend',
+            null,
+            ' Marca '
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            this.state.grua.marca
+          ),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'legend',
+            null,
+            ' Modelo '
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            this.state.grua.modelo
+          ),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'legend',
+            null,
+            ' N\xB0Serie '
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            this.state.grua.numeroSerie
+          )
         )
       );
     }
@@ -26913,43 +26936,6 @@ exports.default = GruaDetail;
 
 /***/ }),
 /* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var React = _interopRequireWildcard(_react);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-var Output = function Output(props) {
-	return React.createElement(
-		"div",
-		{ className: "jumbotron" },
-		React.createElement(
-			"legend",
-			null,
-			props.h
-		),
-		React.createElement("hr", null),
-		React.createElement(
-			"h6",
-			null,
-			props.d
-		)
-	);
-};
-
-exports.default = Output;
-
-/***/ }),
-/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27061,7 +27047,7 @@ var Persona = function (_Component) {
 exports.default = Persona;
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27081,7 +27067,7 @@ var _Input = __webpack_require__(24);
 
 var _Input2 = _interopRequireDefault(_Input);
 
-var _CheckBox = __webpack_require__(107);
+var _CheckBox = __webpack_require__(106);
 
 var _CheckBox2 = _interopRequireDefault(_CheckBox);
 
@@ -27416,7 +27402,7 @@ var GruaCreate = function (_Component) {
 exports.default = GruaCreate;
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27476,7 +27462,7 @@ var CheckBox = function (_Component) {
 exports.default = CheckBox;
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27564,7 +27550,7 @@ var ClienteList = function (_Component) {
 exports.default = ClienteList;
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
