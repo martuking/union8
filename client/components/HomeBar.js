@@ -37,7 +37,7 @@ class BarraHome extends Component {
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link to={"montajes"} className="nav-link"> Montajes </Link>
-                <Link to={"pruebaLimitadores"} className="nav-link"> Pruebas de Limitadores </Link>
+                <Link to={"pruebaLimitadores"} className="nav-link"> Pruebas de limitadores </Link>
                 <Link to={"reportes"} className="nav-link"> Reportes </Link>
                 <Link to={"revisiones"} className="nav-link"> Revisiones </Link>
                 <Link to={"reparaciones"} className="nav-link"> Reparaciones </Link>
@@ -49,7 +49,7 @@ class BarraHome extends Component {
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link to={"adquisiciones"} className="nav-link"> Adquisiciones </Link>
-              <Link to={"guiasDespacho"} className="nav-link"> Guias de Despacho </Link>
+              <Link to={"guiasDespacho"} className="nav-link"> Guias de despacho </Link>
               </div>
             </li>
             <li className="nav-item dropdown">
@@ -57,11 +57,12 @@ class BarraHome extends Component {
                 Clientes
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">Listado Clientes</a>
+              <Link to={"clientes"} className="nav-link"> Listado de clientes </Link>
                 <div className="dropdown-divider"></div>
+                <Link to={"clientesCreate"} className="nav-link"> Nuevo cliente </Link>
                 <Link to={"ofertas"} className="nav-link"> Ofertas </Link>
                 <Link to={"contratos"} className="nav-link"> Contratos </Link>
-                <Link to={"ordenesCompra"} className="nav-link"> Ordenes de Compra </Link>
+                <Link to={"ordenesCompra"} className="nav-link"> Ordenes de compra </Link>
               </div>
             </li>
           </ul>

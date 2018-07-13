@@ -7,7 +7,7 @@ var ClienteSchema = new Schema({
     rut: { type: String, required: true },
     giro: { type: String, required: true },
     status: { type: String, default: 'activo' },
-    fechaRegistro: { type: Date, required: true },
+    fechaRegistro: { type: Date, default: Date.now },
     oficinas:[{ type: Schema.Types.ObjectId, ref: 'Oficina'}],
     personasCliente:[{ type: Schema.Types.ObjectId, ref: 'PersonaForanea'}]
     

@@ -3,14 +3,14 @@ var Oficina = require('../models/oficina');
 var PersonaForeanea = require('../models/personaForanea');
 
 
-exports.clienteList = function(req, res) {
+exports.clienteList = function(req, res, next) {
     Cliente.find({}).exec(function(err,clientesList){
     	if(err){return next(err);}
     	res.send(clientesList);
     });
 };
 
-exports.clienteShow = function(req, res) {
+exports.clienteShow = function(req, res, next) {
     Cliente.findById(req.params.id)
     .populate('cliente')
     .exec(function(err, clienteBuscado) {
@@ -28,7 +28,7 @@ exports.clienteNew = function(req, res) {
     res.render('cliente_form', { title: 'Agregar Cliente'});
 };
 
-exports.clienteCreate = function(req, res) {
+exports.clienteCreate = function(req, res, next) {
     var cliente = new Cliente({
         nombre: req.body.nombre,
         rut: req.body.rut,
@@ -41,7 +41,7 @@ exports.clienteCreate = function(req, res) {
         });
 };
 
-exports.clienteDelete = function(req, res) {
+exports.clienteDelete = function(req, res, next) {
     Cliente.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}
@@ -55,7 +55,7 @@ exports.clienteDelete = function(req, res) {
     );
 };
 
-exports.clienteEdit = function(req, res) {
+exports.clienteEdit = function(req, res, next) {
     Cliente.findById(req.params.id)
     .populate('cliente')
     .exec(function(err, clienteBuscado){
@@ -70,7 +70,7 @@ exports.clienteEdit = function(req, res) {
     );
 };
 
-exports.clienteUpdate = function(req, res) {
+exports.clienteUpdate = function(req, res, next) {
     var cliente = new Cliente({
         nombre: req.body.nombre,
         rut: req.body.rut,
