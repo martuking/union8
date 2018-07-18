@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Table from "../components/Table";
+import { Link } from 'react-router-dom';
 
 class GruaList extends Component {
   constructor(props) {
@@ -27,13 +28,15 @@ class GruaList extends Component {
     const headers = [
       "Marca",
       "Modelo",
-      "Nº Serie"
+      "Nº Serie",
+      ""
     ]
     let data = this.state.gruas.map((g, i) => {
       return([
         g.marca,
         g.modelo,
-        g.numeroSerie
+        g.numeroSerie,
+        <Link to={'/gruas/'+g._id} > Ver </Link>
       ]);
     });
     return (
