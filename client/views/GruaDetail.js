@@ -11,7 +11,7 @@ class GruaDetail extends Component {
 		};
 	}
 	componentDidMount() {
-		axios.get('/api/gruas/5b286f3b3bbc6d14f4f3aee8')
+    axios.get('/api/gruas/'+ this.props.match.params.id)
 			.then(res => {
 				this.setState({
           grua: res.data,
