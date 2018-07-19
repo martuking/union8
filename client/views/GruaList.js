@@ -36,7 +36,7 @@ class GruaList extends Component {
         g.marca,
         g.modelo,
         g.numeroSerie,
-        <Link to={'/gruas/'+g._id} > Ver </Link>
+        <Link to={'/gruas/'+g._id} ><i class="fa fa-plus"></i></Link>
       ]);
     });
     return (

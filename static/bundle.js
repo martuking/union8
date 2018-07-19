@@ -311,7 +311,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 var bind = __webpack_require__(37);
-var isBuffer = __webpack_require__(84);
+var isBuffer = __webpack_require__(85);
 
 /*global toString:true*/
 
@@ -674,7 +674,7 @@ module.exports = invariant;
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(83);
+module.exports = __webpack_require__(84);
 
 /***/ }),
 /* 6 */
@@ -1697,7 +1697,7 @@ var matchPath = function matchPath(pathname) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(3);
-var normalizeHeaderName = __webpack_require__(86);
+var normalizeHeaderName = __webpack_require__(87);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -1808,7 +1808,7 @@ var _react = __webpack_require__(0);
 
 var React = _interopRequireWildcard(_react);
 
-var _Row = __webpack_require__(101);
+var _Row = __webpack_require__(102);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -3104,12 +3104,12 @@ module.exports = function bind(fn, thisArg) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(3);
-var settle = __webpack_require__(87);
-var buildURL = __webpack_require__(89);
-var parseHeaders = __webpack_require__(90);
-var isURLSameOrigin = __webpack_require__(91);
+var settle = __webpack_require__(88);
+var buildURL = __webpack_require__(90);
+var parseHeaders = __webpack_require__(91);
+var isURLSameOrigin = __webpack_require__(92);
 var createError = __webpack_require__(39);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(92);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(93);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -3206,7 +3206,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(93);
+      var cookies = __webpack_require__(94);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -3291,7 +3291,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(88);
+var enhanceError = __webpack_require__(89);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -25385,35 +25385,39 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(13);
 
-var _HomeBar = __webpack_require__(81);
+var _HomePage = __webpack_require__(81);
+
+var _HomePage2 = _interopRequireDefault(_HomePage);
+
+var _HomeBar = __webpack_require__(82);
 
 var _HomeBar2 = _interopRequireDefault(_HomeBar);
 
-var _GruaList = __webpack_require__(82);
+var _GruaList = __webpack_require__(83);
 
 var _GruaList2 = _interopRequireDefault(_GruaList);
 
-var _GruaCreate = __webpack_require__(102);
+var _GruaCreate = __webpack_require__(103);
 
 var _GruaCreate2 = _interopRequireDefault(_GruaCreate);
 
-var _GruaDetail = __webpack_require__(103);
+var _GruaDetail = __webpack_require__(104);
 
 var _GruaDetail2 = _interopRequireDefault(_GruaDetail);
 
-var _PersonaList = __webpack_require__(104);
+var _PersonaList = __webpack_require__(105);
 
 var _PersonaList2 = _interopRequireDefault(_PersonaList);
 
-var _PersonaCreate = __webpack_require__(105);
+var _PersonaCreate = __webpack_require__(106);
 
 var _PersonaCreate2 = _interopRequireDefault(_PersonaCreate);
 
-var _ClienteList = __webpack_require__(107);
+var _ClienteList = __webpack_require__(108);
 
 var _ClienteList2 = _interopRequireDefault(_ClienteList);
 
-var _ClienteCreate = __webpack_require__(108);
+var _ClienteCreate = __webpack_require__(109);
 
 var _ClienteCreate2 = _interopRequireDefault(_ClienteCreate);
 
@@ -25441,14 +25445,18 @@ var App = function (_Component) {
         'div',
         null,
         _react2.default.createElement(_HomeBar2.default, null),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _GruaList2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/personas', component: _PersonaList2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/personasCreate', component: _PersonaCreate2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruas', component: _GruaList2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruasCreate', component: _GruaCreate2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruas/:id', component: _GruaDetail2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/clientes', component: _ClienteList2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/clientesCreate', component: _ClienteCreate2.default })
+        _react2.default.createElement(
+          _reactRouterDom.Switch,
+          null,
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _HomePage2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/personas', component: _PersonaList2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/personasCreate', component: _PersonaCreate2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruas', component: _GruaList2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruasCreate', component: _GruaCreate2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruas/:id', component: _GruaDetail2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/clientes', component: _ClienteList2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/clientesCreate', component: _ClienteCreate2.default })
+        )
       );
     }
   }]);
@@ -25460,6 +25468,75 @@ exports.default = App;
 
 /***/ }),
 /* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomePage = function (_Component) {
+	_inherits(HomePage, _Component);
+
+	function HomePage(props) {
+		_classCallCheck(this, HomePage);
+
+		var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this, props));
+
+		_this.state = {
+			loading: true
+		};
+		return _this;
+	}
+
+	_createClass(HomePage, [{
+		key: "componentDidMount",
+		value: function componentDidMount() {
+			this.setState({
+				loading: false
+			});
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			if (this.state.loading) {
+				return "Cargando...";
+			}
+			return _react2.default.createElement(
+				"div",
+				{ className: "jumbotron" },
+				_react2.default.createElement(
+					"h1",
+					{ className: "text-center" },
+					"Bienvenido a la aplicacion de Union"
+				)
+			);
+		}
+	}]);
+
+	return HomePage;
+}(_react.Component);
+
+exports.default = HomePage;
+
+/***/ }),
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25684,7 +25761,7 @@ var BarraHome = function (_Component) {
 exports.default = BarraHome;
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25756,7 +25833,7 @@ var GruaList = function (_Component) {
         return [g.marca, g.modelo, g.numeroSerie, _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/gruas/' + g._id },
-          ' Ver '
+          _react2.default.createElement('i', { 'class': 'fa fa-plus' })
         )];
       });
       return _react2.default.createElement(
@@ -25778,7 +25855,7 @@ var GruaList = function (_Component) {
 exports.default = GruaList;
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25786,7 +25863,7 @@ exports.default = GruaList;
 
 var utils = __webpack_require__(3);
 var bind = __webpack_require__(37);
-var Axios = __webpack_require__(85);
+var Axios = __webpack_require__(86);
 var defaults = __webpack_require__(22);
 
 /**
@@ -25821,14 +25898,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(41);
-axios.CancelToken = __webpack_require__(99);
+axios.CancelToken = __webpack_require__(100);
 axios.isCancel = __webpack_require__(40);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(100);
+axios.spread = __webpack_require__(101);
 
 module.exports = axios;
 
@@ -25837,7 +25914,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports) {
 
 /*!
@@ -25864,7 +25941,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25872,8 +25949,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(22);
 var utils = __webpack_require__(3);
-var InterceptorManager = __webpack_require__(94);
-var dispatchRequest = __webpack_require__(95);
+var InterceptorManager = __webpack_require__(95);
+var dispatchRequest = __webpack_require__(96);
 
 /**
  * Create a new instance of Axios
@@ -25950,7 +26027,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25969,7 +26046,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26002,7 +26079,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26030,7 +26107,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26103,7 +26180,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26163,7 +26240,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26238,7 +26315,7 @@ module.exports = (
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26281,7 +26358,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26341,7 +26418,7 @@ module.exports = (
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26400,18 +26477,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(3);
-var transformData = __webpack_require__(96);
+var transformData = __webpack_require__(97);
 var isCancel = __webpack_require__(40);
 var defaults = __webpack_require__(22);
-var isAbsoluteURL = __webpack_require__(97);
-var combineURLs = __webpack_require__(98);
+var isAbsoluteURL = __webpack_require__(98);
+var combineURLs = __webpack_require__(99);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -26493,7 +26570,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26520,7 +26597,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26541,7 +26618,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26562,7 +26639,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26626,7 +26703,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26660,7 +26737,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26693,7 +26770,7 @@ var Row = function Row(props) {
 exports.default = Row;
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26822,7 +26899,7 @@ var GruaCreate = function (_Component) {
 exports.default = GruaCreate;
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26937,7 +27014,7 @@ var GruaDetail = function (_Component) {
 exports.default = GruaDetail;
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27049,7 +27126,7 @@ var Persona = function (_Component) {
 exports.default = Persona;
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27069,7 +27146,7 @@ var _Input = __webpack_require__(24);
 
 var _Input2 = _interopRequireDefault(_Input);
 
-var _CheckBox = __webpack_require__(106);
+var _CheckBox = __webpack_require__(107);
 
 var _CheckBox2 = _interopRequireDefault(_CheckBox);
 
@@ -27404,7 +27481,7 @@ var GruaCreate = function (_Component) {
 exports.default = GruaCreate;
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27464,7 +27541,7 @@ var CheckBox = function (_Component) {
 exports.default = CheckBox;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27552,7 +27629,7 @@ var ClienteList = function (_Component) {
 exports.default = ClienteList;
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
