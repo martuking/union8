@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-class GruaDetail extends Component {
+class ClienteShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
-      grua: {}
+      cliente: {}
     };
   }
   componentDidMount() {
-    axios.get('/api/gruas/'+this.props.match.params.id)
+    axios.get('/api/clientes/'+this.props.match.params.id)
       .then(res => {
         this.setState({
-          grua: res.data,
+          cliente: res.data,
           loading: false
         })
       })
@@ -26,20 +26,20 @@ class GruaDetail extends Component {
     }
     return (
       <div className="container">
-        <h1 className="text-center">Grua</h1>
+        <h1 className="text-center">Cliente</h1>
         <div className="jumbotron">
-          <legend> Marca </legend>
-          <h6>{this.state.grua.marca}</h6>
+          <legend> Nombre </legend>
+          <h6>{this.state.cliente.nombre}</h6>
           <hr />
-          <legend> Modelo </legend>
-          <h6>{this.state.grua.modelo}</h6>
+          <legend> Rut </legend>
+          <h6>{this.state.cliente.rut}</h6>
           <hr />
-          <legend> N°Serie </legend>
-          <h6>{this.state.grua.numeroSerie}</h6>
+          <legend> Giro </legend>
+          <h6>{this.state.cliente.giro}</h6>
         </div>
       </div>
     );
   }
 }
 
-export default GruaDetail;
+export default ClienteShow;

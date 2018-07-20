@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Table from '../components/Table';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 class Persona extends Component {
   constructor(props){
     super(props);
@@ -41,6 +42,9 @@ class Persona extends Component {
       "AFP",
       "N°Cargas",
       "Isapre",
+      "",
+      "",
+      ""
       //"Tramo",
       //"Monto Pactado"
     ]
@@ -63,6 +67,9 @@ class Persona extends Component {
         g.afp,
         g.cargas,
         g.isapre,
+        <Link to={'/personas/' + g._id} ><i className="fa fa-search"></i></Link>,
+				<Link to={'/personas/' + g._id} ><i className="fa fa-edit"></i></Link>,
+				<Link to={'/personas/' + g._id} ><i className="fa fa-remove"></i></Link>
         //g.tramo,
         //g.montoPactado
 

@@ -29,6 +29,8 @@ class GruaList extends Component {
       "Marca",
       "Modelo",
       "Nº Serie",
+      "",
+      "",
       ""
     ]
     let data = this.state.gruas.map((g, i) => {
@@ -36,7 +38,9 @@ class GruaList extends Component {
         g.marca,
         g.modelo,
         g.numeroSerie,
-        <Link to={'/gruas/'+g._id} ><i class="fa fa-plus"></i></Link>
+        <Link to={'/gruas/'+g._id} ><i className="fa fa-search"></i></Link>,
+        <Link to={'/gruas/'+g._id} ><i className="fa fa-edit"></i></Link>,
+        <Link to={'/gruas/'+g._id} ><i className="fa fa-remove"></i></Link>
       ]);
     });
     return (
