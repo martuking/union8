@@ -38,9 +38,9 @@ class GruaList extends Component {
         g.marca,
         g.modelo,
         g.numeroSerie,
-        <Link to={'/gruas/'+g._id} ><i className="fa fa-search"></i></Link>,
-        <Link to={'/gruas/'+g._id} ><i className="fa fa-edit"></i></Link>,
-        <Link to={'/gruas/'+g._id} ><i className="fa fa-remove"></i></Link>
+        <button><Link to={'/gruas/' + g._id}><i className="fa fa-search"></i></Link></button>,
+        <button><Link to={'/gruas/' + g._id +'/edit'}><i className="fa fa-edit"></i></Link></button>,
+        <button><i className="fa fa-remove"></i></button>
       ]);
     });
     return (
