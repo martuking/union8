@@ -25814,6 +25814,7 @@ var GruaList = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (GruaList.__proto__ || Object.getPrototypeOf(GruaList)).call(this, props));
 
+    _this.handleDelete = _this.handleDelete.bind(_this);
     _this.state = {
       loading: true,
       gruas: []
@@ -25834,8 +25835,16 @@ var GruaList = function (_Component) {
       }).catch(console.error);
     }
   }, {
+    key: 'handleDelete',
+    value: function handleDelete() {
+      event.preventDefault();
+      _axios2.default.delete('/api/gruas/' + this.props.match.params.id).then(window.location.href = '/gruas').catch(console.error);
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       if (this.state.loading) {
         return "Cargando...";
       }
@@ -25859,7 +25868,7 @@ var GruaList = function (_Component) {
           )
         ), _react2.default.createElement(
           'button',
-          null,
+          { onClick: _this3.handleDelete },
           _react2.default.createElement('i', { className: 'fa fa-remove' })
         )];
       });

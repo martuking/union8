@@ -5,25 +5,32 @@ import { Link } from 'react-router-dom';
 
 class GruaList extends Component {
   constructor(props) {
-		super(props);
-		this.state = {
+    super(props);
+    this.handleDelete=this.handleDelete.bind(this);
+    this.state = {
       loading: true,
-			gruas: []
-		};
-	}
-	componentDidMount() {
-		axios.get('/api/gruas')
-			.then(res => {
-				this.setState({
+      gruas: []
+    };
+  }
+  componentDidMount() {
+    axios.get('/api/gruas')
+      .then(res => {
+        this.setState({
           gruas: res.data,
           loading: false
-				})
-			})
-			.catch(console.error);
-	}
+        })
+      })
+      .catch(console.error);
+  }
+  handleDelete() {
+    event.preventDefault();
+    axios.delete('/api/gruas/' + this.props.match.params.id).then(
+      window.location.href = '/gruas'
+    ).catch(console.error);
+  }
   render() {
     if (this.state.loading) {
-      return("Cargando...");
+      return ("Cargando...");
     }
     const headers = [
       "Marca",
@@ -34,13 +41,13 @@ class GruaList extends Component {
       ""
     ]
     let data = this.state.gruas.map((g, i) => {
-      return([
+      return ([
         g.marca,
         g.modelo,
         g.numeroSerie,
         <button><Link to={'/gruas/' + g._id}><i className="fa fa-search"></i></Link></button>,
-        <button><Link to={'/gruas/' + g._id +'/edit'}><i className="fa fa-edit"></i></Link></button>,
-        <button><i className="fa fa-remove"></i></button>
+        <button><Link to={'/gruas/' + g._id + '/edit'}><i className="fa fa-edit"></i></Link></button>,
+        <button onClick={this.handleDelete}><i className="fa fa-remove"></i></button>
       ]);
     });
     return (

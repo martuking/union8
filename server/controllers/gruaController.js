@@ -47,7 +47,7 @@ exports.gruaDelete = function (req, res) {
 			else {
 				Grua.findByIdAndRemove(req.body.gruaid, function eleminarGrua(err) {
 					if (err) { return next(err); }
-					res.send('se elimino ', req.body.id);
+					//res.send('se elimino ', req.body.id);
 				})
 			}
 		}
