@@ -41,13 +41,13 @@ exports.gruaCreate = function (req, res) {
 };
 
 exports.gruaDelete = function (req, res) {
-	Grua.findById(req.body.id).exec(
-		function (err, results) {
+	Grua.findById(req.params.id).exec(
+		function (err) {
 			if (err) { return next(err); }
 			else {
-				Grua.findByIdAndRemove(req.body.gruaid, function eleminarGrua(err) {
+				Grua.findByIdAndRemove(req.params.id, function eleminarGrua(err) {
 					if (err) { return next(err); }
-					//res.send('se elimino ', req.body.id);
+					//res.send('se elimino');
 				})
 			}
 		}

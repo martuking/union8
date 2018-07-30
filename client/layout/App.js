@@ -6,6 +6,7 @@ import GruaList from '../views/GruaList';
 import GruaCreate from '../views/GruaCreate';
 import GruaDetail from '../views/GruaDetail';
 import GruaEdit from '../views/GruaEdit';
+import GruaDelete from '../views/GruaDelete';
 import PersonaList from '../views/PersonaList';
 import PersonaCreate from '../views/PersonaCreate';
 import PersonaShow from '../views/PersonaShow';
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/gruasCreate" component={GruaCreate} />
           <Route exact path="/gruas/:id" component={GruaDetail} />
           <Route exact path="/gruas/:id/edit" component={GruaEdit} />
+          <Route exact path="/gruas/:id/delete" component={GruaDelete} />
           <Route exact path="/personas" component={PersonaList} />
           <Route exact path="/personasCreate" component={PersonaCreate} />
           <Route exact path="/personas/:id" component={PersonaShow} />

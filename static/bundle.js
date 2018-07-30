@@ -25409,27 +25409,31 @@ var _GruaEdit = __webpack_require__(105);
 
 var _GruaEdit2 = _interopRequireDefault(_GruaEdit);
 
-var _PersonaList = __webpack_require__(106);
+var _GruaDelete = __webpack_require__(106);
+
+var _GruaDelete2 = _interopRequireDefault(_GruaDelete);
+
+var _PersonaList = __webpack_require__(107);
 
 var _PersonaList2 = _interopRequireDefault(_PersonaList);
 
-var _PersonaCreate = __webpack_require__(107);
+var _PersonaCreate = __webpack_require__(108);
 
 var _PersonaCreate2 = _interopRequireDefault(_PersonaCreate);
 
-var _PersonaShow = __webpack_require__(109);
+var _PersonaShow = __webpack_require__(110);
 
 var _PersonaShow2 = _interopRequireDefault(_PersonaShow);
 
-var _ClienteList = __webpack_require__(110);
+var _ClienteList = __webpack_require__(111);
 
 var _ClienteList2 = _interopRequireDefault(_ClienteList);
 
-var _ClienteCreate = __webpack_require__(111);
+var _ClienteCreate = __webpack_require__(112);
 
 var _ClienteCreate2 = _interopRequireDefault(_ClienteCreate);
 
-var _ClienteShow = __webpack_require__(112);
+var _ClienteShow = __webpack_require__(113);
 
 var _ClienteShow2 = _interopRequireDefault(_ClienteShow);
 
@@ -25462,6 +25466,7 @@ var App = function (_Component) {
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruasCreate', component: _GruaCreate2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruas/:id', component: _GruaDetail2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruas/:id/edit', component: _GruaEdit2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gruas/:id/delete', component: _GruaDelete2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/personas', component: _PersonaList2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/personasCreate', component: _PersonaCreate2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/personas/:id', component: _PersonaShow2.default }),
@@ -25814,7 +25819,6 @@ var GruaList = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (GruaList.__proto__ || Object.getPrototypeOf(GruaList)).call(this, props));
 
-    _this.handleDelete = _this.handleDelete.bind(_this);
     _this.state = {
       loading: true,
       gruas: []
@@ -25835,16 +25839,8 @@ var GruaList = function (_Component) {
       }).catch(console.error);
     }
   }, {
-    key: 'handleDelete',
-    value: function handleDelete() {
-      event.preventDefault();
-      _axios2.default.delete('/api/gruas/' + this.props.match.params.id).then(window.location.href = '/gruas').catch(console.error);
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
-
       if (this.state.loading) {
         return "Cargando...";
       }
@@ -25852,7 +25848,7 @@ var GruaList = function (_Component) {
       var data = this.state.gruas.map(function (g, i) {
         return [g.marca, g.modelo, g.numeroSerie, _react2.default.createElement(
           'button',
-          null,
+          { className: 'btn' },
           _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/gruas/' + g._id },
@@ -25860,7 +25856,7 @@ var GruaList = function (_Component) {
           )
         ), _react2.default.createElement(
           'button',
-          null,
+          { className: 'btn' },
           _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/gruas/' + g._id + '/edit' },
@@ -25868,8 +25864,12 @@ var GruaList = function (_Component) {
           )
         ), _react2.default.createElement(
           'button',
-          { onClick: _this3.handleDelete },
-          _react2.default.createElement('i', { className: 'fa fa-remove' })
+          { className: 'btn' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/gruas/' + g._id + '/delete' },
+            _react2.default.createElement('i', { className: 'fa fa-remove' })
+          )
         )];
       });
       return _react2.default.createElement(
@@ -27186,6 +27186,133 @@ exports.default = GruaEdit;
 
 
 Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(4);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var GruaDelete = function (_Component) {
+	_inherits(GruaDelete, _Component);
+
+	function GruaDelete(props) {
+		_classCallCheck(this, GruaDelete);
+
+		var _this = _possibleConstructorReturn(this, (GruaDelete.__proto__ || Object.getPrototypeOf(GruaDelete)).call(this, props));
+
+		_this.handleDelete = _this.handleDelete.bind(_this);
+		_this.state = {
+			loading: true,
+			grua: {}
+		};
+		return _this;
+	}
+
+	_createClass(GruaDelete, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			var _this2 = this;
+
+			_axios2.default.get('/api/gruas/' + this.props.match.params.id).then(function (res) {
+				_this2.setState({
+					grua: res.data,
+					loading: false
+				});
+			}).catch(console.error);
+		}
+	}, {
+		key: 'handleDelete',
+		value: function handleDelete(event) {
+			event.preventDefault();
+			_axios2.default.delete('/api/gruas/' + this.props.match.params.id).then(window.location.href = '/gruas').catch(console.error);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			if (this.state.loading) {
+				return "Cargando...";
+			}
+			return _react2.default.createElement(
+				'div',
+				{ className: 'container' },
+				_react2.default.createElement(
+					'h1',
+					{ className: 'text-center' },
+					'Desea eliminar esta grua'
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'jumbotron' },
+					_react2.default.createElement(
+						'legend',
+						null,
+						' Marca '
+					),
+					_react2.default.createElement(
+						'h6',
+						null,
+						this.state.grua.marca
+					),
+					_react2.default.createElement('hr', null),
+					_react2.default.createElement(
+						'legend',
+						null,
+						' Modelo '
+					),
+					_react2.default.createElement(
+						'h6',
+						null,
+						this.state.grua.modelo
+					),
+					_react2.default.createElement('hr', null),
+					_react2.default.createElement(
+						'legend',
+						null,
+						' N\xB0Serie '
+					),
+					_react2.default.createElement(
+						'h6',
+						null,
+						this.state.grua.numeroSerie
+					),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary', onClick: this.handleDelete },
+						'Eliminar'
+					)
+				)
+			);
+		}
+	}]);
+
+	return GruaDelete;
+}(_react.Component);
+
+exports.default = GruaDelete;
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -27308,7 +27435,7 @@ var Persona = function (_Component) {
 exports.default = Persona;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27328,7 +27455,7 @@ var _Input = __webpack_require__(16);
 
 var _Input2 = _interopRequireDefault(_Input);
 
-var _CheckBox = __webpack_require__(108);
+var _CheckBox = __webpack_require__(109);
 
 var _CheckBox2 = _interopRequireDefault(_CheckBox);
 
@@ -27663,7 +27790,7 @@ var GruaCreate = function (_Component) {
 exports.default = GruaCreate;
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27723,7 +27850,7 @@ var CheckBox = function (_Component) {
 exports.default = CheckBox;
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27860,7 +27987,7 @@ var PersonaShow = function (_Component) {
 exports.default = PersonaShow;
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27962,7 +28089,7 @@ var ClienteList = function (_Component) {
 exports.default = ClienteList;
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28091,7 +28218,7 @@ var ClienteCreate = function (_Component) {
 exports.default = ClienteCreate;
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

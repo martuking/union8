@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 class GruaList extends Component {
   constructor(props) {
     super(props);
-    this.handleDelete=this.handleDelete.bind(this);
     this.state = {
       loading: true,
       gruas: []
@@ -21,12 +20,6 @@ class GruaList extends Component {
         })
       })
       .catch(console.error);
-  }
-  handleDelete() {
-    event.preventDefault();
-    axios.delete('/api/gruas/' + this.props.match.params.id).then(
-      window.location.href = '/gruas'
-    ).catch(console.error);
   }
   render() {
     if (this.state.loading) {
@@ -45,9 +38,9 @@ class GruaList extends Component {
         g.marca,
         g.modelo,
         g.numeroSerie,
-        <button><Link to={'/gruas/' + g._id}><i className="fa fa-search"></i></Link></button>,
-        <button><Link to={'/gruas/' + g._id + '/edit'}><i className="fa fa-edit"></i></Link></button>,
-        <button onClick={this.handleDelete}><i className="fa fa-remove"></i></button>
+        <button className="btn"><Link to={'/gruas/' + g._id}><i className="fa fa-search"></i></Link></button>,
+        <button className="btn"><Link to={'/gruas/' + g._id + '/edit'}><i className="fa fa-edit"></i></Link></button>,
+        <button className="btn"><Link to={'/gruas/' + g._id + '/delete'}><i className="fa fa-remove"></i></Link></button>
       ]);
     });
     return (
