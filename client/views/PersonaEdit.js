@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Input from '../components/Input';
 import CheckBox from '../components/CheckBox';
 import axios from 'axios';
-class PersonaCreate extends Component {
+class PersonaEdit extends Component {
 	constructor(props) {
 		super(props);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -230,7 +230,7 @@ class PersonaCreate extends Component {
 
 		}
 		event.preventDefault();
-		axios.post('/api/personas/create', data).then(
+		axios.put('/api/personas/'+ this.props.match.params.id, data).then(
 			window.location.href = '/personas'
 		).catch(console.error);
 	}
@@ -242,7 +242,7 @@ class PersonaCreate extends Component {
 
 		return (
 			<div className="container">
-				<h1 className="text-center">Agregar nueva persona</h1>
+				<h1 className="text-center">Edite los datos de la persona</h1>
 				<form className="jumbotron" onSubmit={this.onSubmit}>
 					<Input label={"Codigo interno"} data={this.changeCod} type={"text"}/>
 					<Input label={"Apellido 1"} data={this.changeApellido1} type={"text"}/>
@@ -274,4 +274,4 @@ class PersonaCreate extends Component {
 	}
 }
 
-export default PersonaCreate;
+export default PersonaEdit;

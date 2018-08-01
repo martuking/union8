@@ -33,6 +33,8 @@ class ClienteList extends Component {
 			"Giro",
 			"",
 			"",
+			"",
+			"",
 			""
 		]
 		let data = this.state.clientes.map((g, i) => {
@@ -41,8 +43,10 @@ class ClienteList extends Component {
 				g.rut,
 				g.giro,
 				<Link to={'/clientes/' + g._id} ><i className="fa fa-search"></i></Link>,
-				<Link to={'/clientes/' + g._id} ><i className="fa fa-edit"></i></Link>,
-				<Link to={'/clientes/' + g._id} ><i className="fa fa-remove"></i></Link>
+				<Link to={'/clientes/' + g._id + '/edit'} ><i className="fa fa-edit"></i></Link>,
+				<Link to={'/clientes/' + g._id + '/delete'} ><i className="fa fa-remove"></i></Link>,
+				<Link to={'/clientes/' + g._id + '/createOficina'} ><i className="fa fa-plus"></i> Oficina</Link>,
+				<Link to={'/clientes/' + g._id + '/createPersonaForanea'} ><i className="fa fa-plus"></i> Persona Foranea</Link>
 			]);
 		});
 		return (

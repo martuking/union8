@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-class GruaDetail extends Component {
+class GruaShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,4 +42,4 @@ class GruaDetail extends Component {
   }
 }
 
-export default GruaDetail;
+export default GruaShow;

@@ -86,14 +86,13 @@ exports.personaCreate = function(req, res, next) {
 
 
 // PersonaDelete
-exports.personaDelete = function(req, res, next) {
-    Persona.findById(req.body.id).exec(
-        function(err, results){
+exports.personaDelete = function(req, next) {
+    Persona.findById(req.params.id).exec(
+        function(err){
             if (err) {return next(err);}
             else {
-                Persona.findByIdAndRemove(req.body.personaid, function eleminarPersona(err){
+                Persona.findByIdAndRemove(req.params.id, function eleminarPersona(err){
                     if (err) { return next(err);}
-                    res.send("persona eliminada id: ", req.body.id);
                 });
             }
         }

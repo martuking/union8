@@ -68,8 +68,8 @@ class Persona extends Component {
         g.cargas,
         g.isapre,
         <Link to={'/personas/' + g._id} ><i className="fa fa-search"></i></Link>,
-				<Link to={'/personas/' + g._id} ><i className="fa fa-edit"></i></Link>,
-				<Link to={'/personas/' + g._id} ><i className="fa fa-remove"></i></Link>
+				<Link to={'/personas/' + g._id +'/edit'} ><i className="fa fa-edit"></i></Link>,
+				<Link to={'/personas/' + g._id +'/delete'} ><i className="fa fa-remove"></i></Link>
         //g.tramo,
         //g.montoPactado
 

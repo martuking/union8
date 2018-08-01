@@ -7,12 +7,10 @@ var GruaSchema = new Schema({
     marca:{ type: String, required: true },
     modelo:{ type: String, required: true },
     configuraciones:{
-        
         altura: { type: Number },
         pluma: { type: Number },
         empotrado: { type: String },
         lastre: { type: Number }
-
     }
 });
 
