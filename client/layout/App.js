@@ -45,6 +45,7 @@ class App extends Component {
           <Route exact path="/clientes/:id" component={ClienteShow} />
           <Route exact path="/clientes/:id/edit" component={ClienteEdit} />
           <Route exact path="/clientes/:id/delete" component={ClienteDelete} />
+          
       </div>
     );
   }

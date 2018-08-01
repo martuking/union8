@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PreviewModal from '../components/Modal';
 class HomePage extends Component {
 	constructor(props) {
 		super(props);
@@ -19,6 +19,7 @@ class HomePage extends Component {
 		return (
 			<div className="jumbotron">
 				<h1 className="text-center">Bienvenido a la aplicacion de Union</h1>
+				<PreviewModal />
 			</div>
 		);
 	}
