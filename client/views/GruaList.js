@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Table from "../components/Table";
 import { Link } from 'react-router-dom';
+import PreviewModal from '../components/Modal';
 
 class GruaList extends Component {
   constructor(props) {
@@ -40,7 +41,8 @@ class GruaList extends Component {
         g.numeroSerie,
         <Link to={'/gruas/' + g._id}><i className="fa fa-search"></i></Link>,
         <Link to={'/gruas/' + g._id + '/edit'}><i className="fa fa-edit"></i></Link>,
-        <Link to={'/gruas/' + g._id + '/delete'}><i className="fa fa-remove"></i></Link>
+        <PreviewModal />
+        //<Link to={'/gruas/' + g._id + '/delete'}><i className="fa fa-remove"></i></Link>
       ]);
     });
     return (

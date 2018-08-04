@@ -7,13 +7,11 @@ class PreviewModal extends Component {
     constructor(props) {
 		super(props);
 		this.handleOpenModal=this.handleOpenModal.bind(this);
-		//this.handleCloseModal=this.handleCloseModal.bind(this);
 		this.state={
 			showModal: false
 		}
 	}
 	handleOpenModal(){
-		console.log('showModal='+this.state.showModal);
 		if(this.state.showModal==false){
 			this.setState({
 				showModal: true
@@ -25,11 +23,6 @@ class PreviewModal extends Component {
 			});
 		}
 	}
-	/*handleCloseModal(){
-		this.setState({
-			showModal: false
-		});
-	}*/
 	render(){
 		return(
 			<div>
