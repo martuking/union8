@@ -3197,7 +3197,6 @@ var PreviewModal = function (_Component) {
 	_createClass(PreviewModal, [{
 		key: 'handleOpenModal',
 		value: function handleOpenModal() {
-			console.log('showModal=' + this.state.showModal);
 			if (this.state.showModal == false) {
 				this.setState({
 					showModal: true
@@ -27393,6 +27392,8 @@ var GruaList = function (_Component) {
       if (this.state.loading) {
         return "Cargando...";
       }
+
+      console.log(Object.entries(this.state.gruas));
       var headers = ["Marca", "Modelo", "Nº Serie", "", "", ""];
       var data = this.state.gruas.map(function (g, i) {
         return [g.marca, g.modelo, g.numeroSerie, _react2.default.createElement(

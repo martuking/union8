@@ -1,14 +1,16 @@
 import React, { Component } from 'react';  
 import Modal from 'react-modal';
-
-
+import ModalRow from './ModalRow';
 
 class PreviewModal extends Component {
     constructor(props) {
 		super(props);
 		this.handleOpenModal=this.handleOpenModal.bind(this);
 		this.state={
-			showModal: false
+			showModal: false,
+			title:'',
+			data:[],
+			headers:[]
 		}
 	}
 	handleOpenModal(){
@@ -28,7 +30,14 @@ class PreviewModal extends Component {
 			<div>
 				<button className="btn btn-primary" onClick={this.handleOpenModal}>Abre el modal</button>
 				<Modal isOpen={this.state.showModal}>
-					<h1>Soy un modal</h1>
+					<h1>{title}</h1>
+						{
+							this.state.headers.map((h)=>{
+								this.state.data.map((d)=>{
+									<ModalRow dataRecord={d} header={h} />
+								})
+							})
+						}
 					<button className="btn btn-primary" onClick={this.handleOpenModal}>Cierra el modal</button>
 				</Modal>
 			</div>
