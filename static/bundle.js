@@ -272,7 +272,7 @@ process.umask = function() { return 0; };
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(97);
+module.exports = __webpack_require__(98);
 
 /***/ }),
 /* 3 */
@@ -317,7 +317,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 var bind = __webpack_require__(42);
-var isBuffer = __webpack_require__(98);
+var isBuffer = __webpack_require__(99);
 
 /*global toString:true*/
 
@@ -1788,7 +1788,7 @@ exports.default = SafeHTMLElement;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(4);
-var normalizeHeaderName = __webpack_require__(100);
+var normalizeHeaderName = __webpack_require__(101);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -1899,7 +1899,7 @@ var _react = __webpack_require__(0);
 
 var React = _interopRequireWildcard(_react);
 
-var _Row = __webpack_require__(115);
+var _Row = __webpack_require__(116);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -3171,6 +3171,10 @@ var _reactModal = __webpack_require__(87);
 
 var _reactModal2 = _interopRequireDefault(_reactModal);
 
+var _ModalRow = __webpack_require__(95);
+
+var _ModalRow2 = _interopRequireDefault(_ModalRow);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3224,8 +3228,13 @@ var PreviewModal = function (_Component) {
 					_react2.default.createElement(
 						'h1',
 						null,
-						'Soy un modal'
+						props.title
 					),
+					props.headers.map(function (h) {
+						props.data.map(function (d) {
+							_react2.default.createElement(_ModalRow2.default, { dataRecord: d, header: h });
+						});
+					}),
 					_react2.default.createElement(
 						'button',
 						{ className: 'btn btn-primary', onClick: this.handleOpenModal },
@@ -3406,12 +3415,12 @@ module.exports = function bind(fn, thisArg) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(4);
-var settle = __webpack_require__(101);
-var buildURL = __webpack_require__(103);
-var parseHeaders = __webpack_require__(104);
-var isURLSameOrigin = __webpack_require__(105);
+var settle = __webpack_require__(102);
+var buildURL = __webpack_require__(104);
+var parseHeaders = __webpack_require__(105);
+var isURLSameOrigin = __webpack_require__(106);
 var createError = __webpack_require__(44);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(106);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(107);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -3508,7 +3517,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(107);
+      var cookies = __webpack_require__(108);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -3593,7 +3602,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(102);
+var enhanceError = __webpack_require__(103);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -25705,67 +25714,67 @@ var _HomePage = __webpack_require__(86);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _HomeBar = __webpack_require__(95);
+var _HomeBar = __webpack_require__(96);
 
 var _HomeBar2 = _interopRequireDefault(_HomeBar);
 
-var _GruaList = __webpack_require__(96);
+var _GruaList = __webpack_require__(97);
 
 var _GruaList2 = _interopRequireDefault(_GruaList);
 
-var _GruaCreate = __webpack_require__(116);
+var _GruaCreate = __webpack_require__(117);
 
 var _GruaCreate2 = _interopRequireDefault(_GruaCreate);
 
-var _GruaShow = __webpack_require__(117);
+var _GruaShow = __webpack_require__(118);
 
 var _GruaShow2 = _interopRequireDefault(_GruaShow);
 
-var _GruaEdit = __webpack_require__(118);
+var _GruaEdit = __webpack_require__(119);
 
 var _GruaEdit2 = _interopRequireDefault(_GruaEdit);
 
-var _GruaDelete = __webpack_require__(119);
+var _GruaDelete = __webpack_require__(120);
 
 var _GruaDelete2 = _interopRequireDefault(_GruaDelete);
 
-var _PersonaList = __webpack_require__(120);
+var _PersonaList = __webpack_require__(121);
 
 var _PersonaList2 = _interopRequireDefault(_PersonaList);
 
-var _PersonaCreate = __webpack_require__(121);
+var _PersonaCreate = __webpack_require__(122);
 
 var _PersonaCreate2 = _interopRequireDefault(_PersonaCreate);
 
-var _PersonaShow = __webpack_require__(122);
+var _PersonaShow = __webpack_require__(123);
 
 var _PersonaShow2 = _interopRequireDefault(_PersonaShow);
 
-var _PersonaEdit = __webpack_require__(123);
+var _PersonaEdit = __webpack_require__(124);
 
 var _PersonaEdit2 = _interopRequireDefault(_PersonaEdit);
 
-var _PersonaDelete = __webpack_require__(124);
+var _PersonaDelete = __webpack_require__(125);
 
 var _PersonaDelete2 = _interopRequireDefault(_PersonaDelete);
 
-var _ClienteList = __webpack_require__(125);
+var _ClienteList = __webpack_require__(126);
 
 var _ClienteList2 = _interopRequireDefault(_ClienteList);
 
-var _ClienteCreate = __webpack_require__(126);
+var _ClienteCreate = __webpack_require__(127);
 
 var _ClienteCreate2 = _interopRequireDefault(_ClienteCreate);
 
-var _ClienteShow = __webpack_require__(127);
+var _ClienteShow = __webpack_require__(128);
 
 var _ClienteShow2 = _interopRequireDefault(_ClienteShow);
 
-var _ClienteEdit = __webpack_require__(128);
+var _ClienteEdit = __webpack_require__(129);
 
 var _ClienteEdit2 = _interopRequireDefault(_ClienteEdit);
 
-var _ClienteDelete = __webpack_require__(129);
+var _ClienteDelete = __webpack_require__(130);
 
 var _ClienteDelete2 = _interopRequireDefault(_ClienteDelete);
 
@@ -25881,8 +25890,7 @@ var HomePage = function (_Component) {
 					'h1',
 					{ className: 'text-center' },
 					'Bienvenido a la aplicacion de Union'
-				),
-				_react2.default.createElement(_Modal2.default, null)
+				)
 			);
 		}
 	}]);
@@ -27103,6 +27111,42 @@ function polyfill(Component) {
 
 
 Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var React = _interopRequireWildcard(_react);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var ModalRow = function ModalRow(props) {
+	return React.createElement(
+		'div',
+		null,
+		React.createElement(
+			'label',
+			null,
+			props.header
+		),
+		React.createElement(
+			'span',
+			null,
+			props.dataRecord
+		)
+	);
+};
+
+exports.default = ModalRow;
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -27321,7 +27365,7 @@ var BarraHome = function (_Component) {
 exports.default = BarraHome;
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27392,10 +27436,12 @@ var GruaList = function (_Component) {
       if (this.state.loading) {
         return "Cargando...";
       }
-
-      console.log(Object.entries(this.state.gruas));
       var headers = ["Marca", "Modelo", "Nº Serie", "", "", ""];
-      var data = this.state.gruas.map(function (g, i) {
+      var modalHeaders = ["Marca", "Modelo", "Nº Serie"];
+      var modalData = this.state.gruas.map(function (g) {
+        return [g.marca, g.modelo, g.numeroSerie];
+      });
+      var data = this.state.gruas.map(function (g) {
         return [g.marca, g.modelo, g.numeroSerie, _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/gruas/' + g._id },
@@ -27404,7 +27450,7 @@ var GruaList = function (_Component) {
           _reactRouterDom.Link,
           { to: '/gruas/' + g._id + '/edit' },
           _react2.default.createElement('i', { className: 'fa fa-edit' })
-        ), _react2.default.createElement(_Modal2.default, null)
+        ), {} /*<PreviewModal headers={modalHeaders} data={modalData} />*/
         //<Link to={'/gruas/' + g._id + '/delete'}><i className="fa fa-remove"></i></Link>
         ];
       });
@@ -27416,7 +27462,7 @@ var GruaList = function (_Component) {
           { className: 'text-center' },
           'Listado de gruas'
         ),
-        _react2.default.createElement(_Table2.default, { headers: headers, data: data })
+        _react2.default.createElement(_Table2.default, { headers: headers, data: data, title: 'Grua' })
       );
     }
   }]);
@@ -27427,7 +27473,7 @@ var GruaList = function (_Component) {
 exports.default = GruaList;
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27435,7 +27481,7 @@ exports.default = GruaList;
 
 var utils = __webpack_require__(4);
 var bind = __webpack_require__(42);
-var Axios = __webpack_require__(99);
+var Axios = __webpack_require__(100);
 var defaults = __webpack_require__(24);
 
 /**
@@ -27470,14 +27516,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(46);
-axios.CancelToken = __webpack_require__(113);
+axios.CancelToken = __webpack_require__(114);
 axios.isCancel = __webpack_require__(45);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(114);
+axios.spread = __webpack_require__(115);
 
 module.exports = axios;
 
@@ -27486,7 +27532,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports) {
 
 /*!
@@ -27513,7 +27559,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27521,8 +27567,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(24);
 var utils = __webpack_require__(4);
-var InterceptorManager = __webpack_require__(108);
-var dispatchRequest = __webpack_require__(109);
+var InterceptorManager = __webpack_require__(109);
+var dispatchRequest = __webpack_require__(110);
 
 /**
  * Create a new instance of Axios
@@ -27599,7 +27645,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27618,7 +27664,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27651,7 +27697,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27679,7 +27725,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27752,7 +27798,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27812,7 +27858,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27887,7 +27933,7 @@ module.exports = (
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27930,7 +27976,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27990,7 +28036,7 @@ module.exports = (
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28049,18 +28095,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(4);
-var transformData = __webpack_require__(110);
+var transformData = __webpack_require__(111);
 var isCancel = __webpack_require__(45);
 var defaults = __webpack_require__(24);
-var isAbsoluteURL = __webpack_require__(111);
-var combineURLs = __webpack_require__(112);
+var isAbsoluteURL = __webpack_require__(112);
+var combineURLs = __webpack_require__(113);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -28142,7 +28188,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28169,7 +28215,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28190,7 +28236,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28211,7 +28257,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28275,7 +28321,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28309,7 +28355,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28342,7 +28388,7 @@ var Row = function Row(props) {
 exports.default = Row;
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28471,7 +28517,7 @@ var GruaCreate = function (_Component) {
 exports.default = GruaCreate;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28586,7 +28632,7 @@ var GruaShow = function (_Component) {
 exports.default = GruaShow;
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28715,7 +28761,7 @@ var GruaEdit = function (_Component) {
 exports.default = GruaEdit;
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28842,7 +28888,7 @@ var GruaDelete = function (_Component) {
 exports.default = GruaDelete;
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28971,7 +29017,7 @@ var Persona = function (_Component) {
 exports.default = Persona;
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29326,7 +29372,7 @@ var PersonaCreate = function (_Component) {
 exports.default = PersonaCreate;
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29463,7 +29509,7 @@ var PersonaShow = function (_Component) {
 exports.default = PersonaShow;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29818,7 +29864,7 @@ var PersonaEdit = function (_Component) {
 exports.default = PersonaEdit;
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29967,7 +30013,7 @@ var PersonaDelete = function (_Component) {
 exports.default = PersonaDelete;
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30079,7 +30125,7 @@ var ClienteList = function (_Component) {
 exports.default = ClienteList;
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30208,7 +30254,7 @@ var ClienteCreate = function (_Component) {
 exports.default = ClienteCreate;
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30323,7 +30369,7 @@ var ClienteShow = function (_Component) {
 exports.default = ClienteShow;
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30452,7 +30498,7 @@ var ClienteEdit = function (_Component) {
 exports.default = ClienteEdit;
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

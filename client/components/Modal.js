@@ -7,10 +7,7 @@ class PreviewModal extends Component {
 		super(props);
 		this.handleOpenModal=this.handleOpenModal.bind(this);
 		this.state={
-			showModal: false,
-			title:'',
-			data:[],
-			headers:[]
+			showModal: false
 		}
 	}
 	handleOpenModal(){
@@ -30,10 +27,10 @@ class PreviewModal extends Component {
 			<div>
 				<button className="btn btn-primary" onClick={this.handleOpenModal}>Abre el modal</button>
 				<Modal isOpen={this.state.showModal}>
-					<h1>{title}</h1>
+					<h1>{props.title}</h1>
 						{
-							this.state.headers.map((h)=>{
-								this.state.data.map((d)=>{
+							props.headers.map((h)=>{
+								props.data.map((d)=>{
 									<ModalRow dataRecord={d} header={h} />
 								})
 							})

@@ -19,7 +19,7 @@ class HomePage extends Component {
 		return (
 			<div className="jumbotron">
 				<h1 className="text-center">Bienvenido a la aplicacion de Union</h1>
-				<PreviewModal />
+				{/*<PreviewModal />*/}
 			</div>
 		);
 	}

@@ -34,21 +34,33 @@ class GruaList extends Component {
       "",
       ""
     ]
-    let data = this.state.gruas.map((g, i) => {
+    const modalHeaders = [
+      "Marca",
+      "Modelo",
+      "Nº Serie"
+    ]
+    let modalData = this.state.gruas.map((g) => {
+      return ([
+        g.marca,
+        g.modelo,
+        g.numeroSerie
+      ])
+    });
+    let data = this.state.gruas.map((g) => {
       return ([
         g.marca,
         g.modelo,
         g.numeroSerie,
         <Link to={'/gruas/' + g._id}><i className="fa fa-search"></i></Link>,
         <Link to={'/gruas/' + g._id + '/edit'}><i className="fa fa-edit"></i></Link>,
-        <PreviewModal />
+        {/*<PreviewModal headers={modalHeaders} data={modalData} />*/}
         //<Link to={'/gruas/' + g._id + '/delete'}><i className="fa fa-remove"></i></Link>
       ]);
     });
     return (
       <div className="container">
         <h1 className="text-center">Listado de gruas</h1>
-        <Table headers={headers} data={data} />
+        <Table headers={headers} data={data} title={'Grua'}/>
       </div>
     );
   }
